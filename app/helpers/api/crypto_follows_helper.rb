@@ -1,0 +1,2 @@
+module Api::CryptoFollowsHelper
+end

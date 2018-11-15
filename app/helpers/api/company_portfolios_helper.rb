@@ -1,0 +1,2 @@
+module Api::CompanyPortfoliosHelper
+end
