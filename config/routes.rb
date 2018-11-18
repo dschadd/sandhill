@@ -17,8 +17,14 @@ Rails.application.routes.draw do
     get "/companies" => "companies#index"
     post "/companies" => "companies#create"
     get "/company/:id" => "companies#show"
-    patch "/companies/:id" => "companies#show"
+    patch "/companies/:id" => "companies#update"
     delete "/companies/:id" => "companies#destroy"
+
+    get "/cryptos" => "cryptos#index"
+    post "/cryptos" => "cryptos#create"
+    get "/crypto/:id" => "cryptos#show"
+    patch "/cryptos/:id" => "cryptos#update" 
+    delete "/cryptos/:id" => "cryptos#destroy"
 
     post "/sessions" => "sessions#create"
 
