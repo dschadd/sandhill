@@ -1,6 +1,6 @@
 class Api::PortfoliosController < ApplicationController
 
-  before_action :authenticate_user
+  # before_action :authenticate_user
 
   def index
     @portfolios = Portfolio.all

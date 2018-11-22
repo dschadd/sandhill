@@ -1,6 +1,6 @@
 class Api::CryptosController < ApplicationController
 
-  before_action :authenticate_user
+  # before_action :authenticate_user
 
   def index
     @cryptos = Crypto.all
@@ -8,7 +8,7 @@ class Api::CryptosController < ApplicationController
   end
 
   def create
-    @crypto = Cryto.new(
+    @crypto = Crypto.new(
       name: params[:name],
       ticker: params[:ticker]
       )

@@ -32,6 +32,18 @@ Rails.application.routes.draw do
     patch "/company_follows/:id" => "company_follows#update"
     delete "/company_follows/:id" => "company_follows#destroy"
 
+    get "/crypto_follows" => "crypto_follows#index"
+    post "/crypto_follows" => "crypto_follows#create"
+    get "/crypto_follow/:id" => "crypto_follows#show"
+    patch "/crypto_follows/:id" => "crypto_follows#update"
+    delete "/crypto_follows/:id" => "crypto_follows#destroy"
+
+    get "/company_portfolios" => "company_portfolios#index"
+    post "/company_portfolios" => "company_portfolios#create"
+    get "/company_portfolio/:id" => "company_portfolios#show"
+    patch "/company_portfolios" => "company_portfolios#update"
+    delete "/company_portfolios" => "company_portolios#destroy"
+
     post "/sessions" => "sessions#create"
 
   end

@@ -1,6 +1,6 @@
 class Api::CompaniesController < ApplicationController
 
-  before_action :authenticate_user
+  # before_action :authenticate_user
 
   def index
     @companies = Company.all
