@@ -31,7 +31,7 @@ class Api::CompaniesController < ApplicationController
     if @company.save
       render "show.json.jbuilder"
     else
-      render json: {errors: @portfolio.errors.full_messages}, status: :unprocessable_entity
+      render json: {errors: @company.errors.full_messages}, status: :unprocessable_entity
     end
   end
 

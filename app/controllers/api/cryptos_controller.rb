@@ -2,7 +2,6 @@ class Api::CryptosController < ApplicationController
 
   before_action :authenticate_user
 
-
   def index
     @cryptos = Crypto.all
     render "index.json.jbuilder"
@@ -32,9 +31,12 @@ class Api::CryptosController < ApplicationController
     if @crypto.save
       render "show.json.jbuilder"
     else
-      render json: {errors: @portfolio.errors.full_messages}, status: :unprocessable_entity
+      render json: {errors: @crypto.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
-
+  def destroy
+    @crypto = Crypto.find_by(id: params[:id])
+    @crypto.destroy
+  end
 end

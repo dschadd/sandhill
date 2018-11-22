@@ -26,6 +26,12 @@ Rails.application.routes.draw do
     patch "/cryptos/:id" => "cryptos#update" 
     delete "/cryptos/:id" => "cryptos#destroy"
 
+    get "/company_follows" => "company_follows#index"
+    post "/company_follows" => "company_follows#create"
+    get "/company_follow/:id" => "company_follows#show"
+    patch "/company_follows/:id" => "company_follows#update"
+    delete "/company_follows/:id" => "company_follows#destroy"
+
     post "/sessions" => "sessions#create"
 
   end

@@ -29,7 +29,7 @@ class Api::PortfoliosController < ApplicationController
     @portfolio = Portfolio.find_by(id: params[:id])
     @portfolio.name = params[:name] || portfolio.name
     @portfolio.private = params[:private] || portfolio.private
-    if portfolio.save
+    if @portfolio.save
       render "show.json.jbuilder"
     else
       render json: {errors: @portfolio.errors.full_messages}, status: :unprocessable_entity
