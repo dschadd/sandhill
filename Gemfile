@@ -54,3 +54,5 @@ gem 'seed_dump'
 gem 'http'
 
 gem 'figaro'
+
+gem 'rack-cors', require: 'rack/cors'
