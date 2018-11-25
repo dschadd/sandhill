@@ -1,0 +1,2 @@
+Alpha Vantage API Key - U7T6GRALT9VHP9AU
+News API Key - 9152dbd2c18041bda55e32ac468e317d

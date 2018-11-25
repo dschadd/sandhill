@@ -42,7 +42,13 @@ Rails.application.routes.draw do
     post "/company_portfolios" => "company_portfolios#create"
     get "/company_portfolio/:id" => "company_portfolios#show"
     patch "/company_portfolios" => "company_portfolios#update"
-    delete "/company_portfolios" => "company_portolios#destroy"
+    delete "/company_portfolios" => "company_portfolios#destroy"
+
+    get "/crypto_portfolios" => "crypto_portfolios#index"
+    post "/crypto_portfolios" => "crypto_portfolios#create"
+    get "/crypto_portfolio/:id" => "crypto_portfolios#show"
+    patch "/crypto_portfolios" => "crypto_portfolios#update"
+    delete "/crypto_portfolios" => "crypto_portfolios#destroy"
 
     post "/sessions" => "sessions#create"
 
