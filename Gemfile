@@ -52,3 +52,5 @@ gem 'jwt'
 gem 'seed_dump'
 
 gem 'http'
+
+gem 'figaro'
