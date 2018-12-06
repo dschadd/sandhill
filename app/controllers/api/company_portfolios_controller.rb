@@ -12,7 +12,8 @@ class Api::CompanyPortfoliosController < ApplicationController
       company_id: params[:company_id],
       user_id: params[:user_id],
       portfolio_id: params[:portfolio_id],
-      shares: params[:shares]
+      shares: params[:shares],
+      purchase_price: params[:purchase_price]
       )
     if @company_portfolio.save
       render "show.json.jbuilder"
@@ -29,6 +30,7 @@ class Api::CompanyPortfoliosController < ApplicationController
   def update
     @company_portfolio = CompayPortfolio.find_by(id: params[:id])
     @company_portfolio.shares = params[:shares] || @company_portfolio.shares
+    @company_portfolio.purchase_price = params[:purchase_price] || @company_portfolio.purchase_price
     if @company_portfolio.save
       render "show.json.jbuilder"
     else

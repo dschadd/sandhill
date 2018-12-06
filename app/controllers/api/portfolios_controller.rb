@@ -11,7 +11,9 @@ class Api::PortfoliosController < ApplicationController
     @portfolio = Portfolio.new(
       user_id: current_user.id,
       name: params[:name],
-      private: params[:private]
+      private: params[:private],
+      initial_cash: params[:initial_cash],
+      current_cash: params[:current_cash]
       )
     if @portfolio.save
       render "show.json.jbuilder"
@@ -29,6 +31,7 @@ class Api::PortfoliosController < ApplicationController
     @portfolio = Portfolio.find_by(id: params[:id])
     @portfolio.name = params[:name] || portfolio.name
     @portfolio.private = params[:private] || portfolio.private
+    @portfolio.current_cash = params[:current_cash] || portfolio.current_cash
     if @portfolio.save
       render "show.json.jbuilder"
     else

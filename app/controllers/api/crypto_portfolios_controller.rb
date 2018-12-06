@@ -12,7 +12,8 @@ class Api::CryptoPortfoliosController < ApplicationController
       crypto_id: params[:crypto_id],
       user_id: params[:user_id],
       portfolio_id: params[:portfolio_id],
-      shares: params[:count]
+      shares: params[:count],
+      purchase_price: params[:purchase_price]
       )
     if @crypto_portfolio.save
       render "show.json.jbuilder"
@@ -29,6 +30,7 @@ class Api::CryptoPortfoliosController < ApplicationController
   def update
     @crypto_portfolio = CryptoPortfolio.find_by(id: params[:id])
     @crypto_portfolio.shares = params[:shares] || @crypto_portfolio.shares
+    @crypto_portfolio.purchase_price = params[:purchase_price] || @crypto_portfolio.purchase_price
     if @crypto_portfolio.save
       render "show.json.jbuilder"
     else
