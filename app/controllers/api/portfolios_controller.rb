@@ -16,6 +16,21 @@ class Api::PortfoliosController < ApplicationController
       current_cash: params[:current_cash]
       )
     if @portfolio.save
+      CompanyPortfolio.create(
+        portfolio_id: @portfolio.id,
+        user_id: current_user.id,
+        company_id: params[:company_id],
+        shares: params[:shares],
+        # purchase_price: params[:purchase_price] need to add api call to retrieve daily price
+        )
+      CryptoPortfolio.create(
+        portfolio_id: @portfolio.id,
+        user_id: current_user.id,
+        crypto_id: params[:crypto_id],
+        count: params[:count],
+        # purchase_price: params[:purchase_price] need to add api call to retrieve daily price
+        )
+
       render "show.json.jbuilder"
     else
       render json: {errors: @portfolio.errors.full_messages}, status: :unprocessable_entity
