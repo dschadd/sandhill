@@ -16,19 +16,21 @@ class Api::PortfoliosController < ApplicationController
       current_cash: params[:current_cash]
       )
     if @portfolio.save
+      company = Company.find_by(id: params[:company_id])
       CompanyPortfolio.create(
         portfolio_id: @portfolio.id,
         user_id: current_user.id,
         company_id: params[:company_id],
         shares: params[:shares],
-        # purchase_price: params[:purchase_price] need to add api call to retrieve daily price
+        purchase_price: company.today_price
         )
+      crypto = Crypto.find_by(id: params[:crypto_id])
       CryptoPortfolio.create(
         portfolio_id: @portfolio.id,
         user_id: current_user.id,
         crypto_id: params[:crypto_id],
         count: params[:count],
-        # purchase_price: params[:purchase_price] need to add api call to retrieve daily price
+        purchase_price: crypto.today_price
         )
 
       render "show.json.jbuilder"
