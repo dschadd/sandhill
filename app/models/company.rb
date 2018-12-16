@@ -18,9 +18,9 @@ class Company < ApplicationRecord
 
   def today_price
     price_response = HTTP.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{ticker}&apikey=#{ENV["alpha_vantage_api_key"]}")
-    t = Time.new
+    t = Time.new - 1.day
     today_date = t.strftime("%Y-%m-%e")
-    @today_price = price_response.parse["Time Series (Daily)"][today_date]["4. close"]
+    @today_price = price_response.parse["Time Series (Daily)"][today_date]["4. close"].to_i
     return @today_price
   end
 

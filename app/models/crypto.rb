@@ -18,9 +18,13 @@ class Crypto < ApplicationRecord
 
   def today_price
     price_response = HTTP.get("https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=#{ticker}&market=USD&apikey=#{ENV["alpha_vantage_api_key"]}")
-    t = Time.new
+    puts "-" * 50
+    pp price_response
+    pp price_response.parse
+    puts "-" * 50
+    t = Time.new - 1.day
     today_date = t.strftime("%Y-%m-%e")
-    @today_price = price_response.parse["Time Series (Digital Currency Daily)"][today_date]["4a. close (USD)"]
+    @today_price = price_response.parse["Time Series (Digital Currency Daily)"][today_date]["4a. close (USD)"].to_i
     return @today_price
   end
   

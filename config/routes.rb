@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post "twilio/text" => "twilio_controller#text"
+
   namespace :api do
 
     get "/users" => "users#index"
