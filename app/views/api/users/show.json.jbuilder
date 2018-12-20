@@ -5,10 +5,10 @@ json.portfolios @user.portfolios
 json.companies @user.companies.each do |company|
   json.company_id company.id
   json.company_name company.name
-  # json.company_price company.price
+  json.company_image company.image
 end
 json.cryptos @user.cryptos.each do |crypto|
   json.crypto_id  crypto.id
   json.crypto_name crypto.name
-  # json.crypto_price crypto.price
+  json.crypto_image crypto.image
 end
