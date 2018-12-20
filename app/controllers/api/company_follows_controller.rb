@@ -9,7 +9,7 @@ class Api::CompanyFollowsController < ApplicationController
 
   def create
     @company_follow = CompanyFollow.new(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       company_id: params[:company_id],
       follow: params[:follows]
       )

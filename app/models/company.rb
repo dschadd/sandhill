@@ -18,10 +18,20 @@ class Company < ApplicationRecord
 
   def today_price
     price_response = HTTP.get("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{ticker}&apikey=#{ENV["alpha_vantage_api_key"]}")
-    t = Time.new - 1.day
+    puts "-" * 50
+    pp price_response
+    pp price_response.parse
+    puts "-" * 50
+    t = Time.new - 5.days
     today_date = t.strftime("%Y-%m-%e")
     @today_price = price_response.parse["Time Series (Daily)"][today_date]["4. close"].to_i
     return @today_price
   end
+
+  # def portfolio_assets
+  #   portfolio_entries = HTTP.get("http://localhost:3000/api/portfolios/1")
+  #   portfolio = Portfolio.find_by(portfolio_id: params[])
+  #   return portfolio
+  # end
 
 end
